@@ -7,15 +7,15 @@ const GenericFunctions_1 = require("./GenericFunctions");
 class Odoo {
     constructor() {
         this.description = {
-            displayName: 'Odoo',
-            name: 'odoo',
+            displayName: 'Odoo Patch',
+            name: 'odooPatch',
             icon: 'file:odoo.svg',
             group: ['transform'],
             version: 1,
             description: 'Consume Odoo API',
             subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
             defaults: {
-                name: 'Odoo',
+                name: 'Odoo Patch',
             },
             inputs: ['main'],
             outputs: ['main'],

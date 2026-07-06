@@ -12,7 +12,7 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 } from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy, NodeOperationError } from 'n8n-workflow';
 
 import {
 	contactDescription,
@@ -42,15 +42,15 @@ import {
 
 export class Odoo implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Odoo',
-		name: 'odoo',
+		displayName: 'Odoo Patch',
+		name: 'odooPatch',
 		icon: 'file:odoo.svg',
 		group: ['transform'],
 		version: 1,
 		description: 'Consume Odoo API',
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		defaults: {
-			name: 'Odoo',
+			name: 'Odoo Patch',
 		},
 		inputs: ['main'],
 		outputs: ['main'],
