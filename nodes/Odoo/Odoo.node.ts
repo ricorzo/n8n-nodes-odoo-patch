@@ -301,7 +301,19 @@ export class Odoo implements INodeType {
 
 		const resource = this.getNodeParameter('resource', 0);
 		const operation = this.getNodeParameter('operation', 0);
+const blockedOperations = [
+    'create',
+    'update',
+    'delete',
+    'action',
+];
 
+if (blockedOperations.includes(operation as string)) {
+    throw new NodeOperationError(
+        this.getNode(),
+        'Esta versión corporativa permite únicamente operaciones de lectura.',
+    );
+}
 		const credentials = await this.getCredentials('odooApi');
 		const url = (credentials.url as string).replace(/\/$/, '');
 		const username = credentials.username as string;
